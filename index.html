@@ -55,11 +55,11 @@
 
                 <div class="editor-container flex">
                     <div class="canvas-container">
-                        <canvas class="canvas" id="my-canvas" height="480" width="480"></canvas>
+                        <canvas class="canvas" id="my-canvas" height="480" width="480" onclick="draw(event)"></canvas>
                     </div>
 
                     <div class="editor flex">
-                        <input class="text-input text-line" type="text" placeholder="What to say?" onclick="draw(event)">
+                        <input class="text-input text-line" type="text" placeholder="What to say?">
                         <div class="line-edit">
                             <div class="edit-btn change-line"><i class="fas fa-exchange-alt flip"></i></div>
                             <div class="edit-btn add-line"><i class="fas fa-plus"></i></div>
@@ -68,20 +68,20 @@
                             <div class="edit-btn move-down"><i class="fas fa-long-arrow-alt-down"></i></div>
                         </div>
 
-                        <div class="text-edit">
+                        <div class="text-edit flex">
 
                             <div class="edit-btn font-inc"><i class="fas fa-font"></i><i class="fas fa-plus"></i></div>
                             <div class="edit-btn font-dec"><i class="fas fa-font"></i><i class="fas fa-minus"></i></div>
                             <div class="edit-btn text-right"><i class="fas fa-align-left"></i></div>
                             <div class="edit-btn text-center"><i class="fas fa-align-center"></i></div>
                             <div class="edit-btn text-left"><i class="fas fa-align-right"></i></div>
-
-                            <select onchange="onSetFont(this.value)" class="font-family">
+                        </div>
+                        <div class="user-pick flex">
+                            <select onchange="onSetFont(this.value)" class="font-pick">
                             <option value="Impact">Impact</option>
                             <option value="Arial">Arial</option>
-
-                        </select>
-                            <div class="color-pick">
+                             </select>
+                            <div class="color-pick flex">
                                 <p>Text Color</p>
                                 <input class="edit-btn text-color" onchange="onChangeColor(this.value)" type="color" value="#ffffff">
 
@@ -89,6 +89,10 @@
                                 <input class="edit-btn stroke-color" onchange="onChangeStroke(this.value)" type="color" value="#000000">
                             </div>
                         </div>
+                        <div class="icons-container">
+
+                        </div>
+
                         <div class="share-btns">
                             <button type="submit" class="share-btn"><i class="fas fa-share-alt"></i>Share</button>
                             <button>

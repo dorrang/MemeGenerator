@@ -34,7 +34,7 @@ function resizeCanvas() {
 
 
 function drawText(x, y) {
-    gCtx.lineWidth = 2;
+    gCtx.lineWidth = 1;
     gCtx.strokeStyle = gCurrStroke;
     gCtx.fillStyle = gCurrColor;
     gCtx.font = '40px Impact';
@@ -42,16 +42,6 @@ function drawText(x, y) {
     gCtx.fillText(gCurrText.value, x, y);
     gCtx.strokeText(gCurrText.value, x, y);
 }
-
-
-// function drawImage() {
-//     var img = new Image();
-//     img.src = "img/koala.jpg";
-
-//     img.onload = function() {
-//         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
-//     };
-// }
 
 
 function draw(ev) {
