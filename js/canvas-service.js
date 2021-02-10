@@ -1,4 +1,22 @@
 'use strict'
+
+
+
+function onChangeColor(color) {
+    gCtx.strokeStyle = color;
+    gCtx.fillStyle = color;
+    gCtx.save();
+    gCurrColor = color;
+
+}
+
+function onChangeStroke(color) {
+    gCtx.strokeStyle = color;
+    gCtx.fillStyle = color;
+    gCtx.save();
+    gCurrStroke = color;
+}
+
 //////////////////////////Canvas///////////////////////////////
 
 
@@ -15,25 +33,35 @@ function resizeCanvas() {
 }
 
 
-function drawText() {
-    var canvas = document.getElementById('myCanvas');
-    var context = canvas.getContext('2d');
-
-    context.font = "40px 'Segoe UI'";
-    context.strokeText("HTML5 Rocks!", 20, 100);
+function drawText(x, y) {
+    gCtx.lineWidth = 2;
+    gCtx.strokeStyle = gCurrStroke;
+    gCtx.fillStyle = gCurrColor;
+    gCtx.font = '40px Impact';
+    gCtx.textAlign = 'center';
+    gCtx.fillText(gCurrText.value, x, y);
+    gCtx.strokeText(gCurrText.value, x, y);
 }
 
-function drawImage() {
 
-    var img = new Image();
-    img.src = "img/koala.jpg";
+// function drawImage() {
+//     var img = new Image();
+//     img.src = "img/koala.jpg";
 
-    img.onload = function() {
-        gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
-    };
+//     img.onload = function() {
+//         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
+//     };
+// }
+
+
+function draw(ev) {
+    const { offsetX, offsetY } = ev;
+    drawText(offsetX, offsetY);
+
 }
 
 /////////////////////Touch & Mouse Events///////////////////////
+
 const gTouchEvs = ['touchstart', 'touchmove', 'touchend'];
 var gStartPos;
 

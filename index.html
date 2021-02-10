@@ -59,7 +59,7 @@
                     </div>
 
                     <div class="editor flex">
-                        <input class="input-txt text-line" type="text" placeholder="What to say?">
+                        <input class="text-input text-line" type="text" placeholder="What to say?" onclick="draw(event)">
                         <div class="line-edit">
                             <div class="edit-btn change-line"><i class="fas fa-exchange-alt flip"></i></div>
                             <div class="edit-btn add-line"><i class="fas fa-plus"></i></div>
@@ -81,9 +81,13 @@
                             <option value="Arial">Arial</option>
 
                         </select>
+                            <div class="color-pick">
+                                <p>Text Color</p>
+                                <input class="edit-btn text-color" onchange="onChangeColor(this.value)" type="color" value="#ffffff">
 
-                            <input class="edit-btn stroke-color" type="color">
-                            <input class="edit-btn text-color" type="color">
+                                <p>Stroke Color</p>
+                                <input class="edit-btn stroke-color" onchange="onChangeStroke(this.value)" type="color" value="#000000">
+                            </div>
                         </div>
                         <div class="share-btns">
                             <button type="submit" class="share-btn"><i class="fas fa-share-alt"></i>Share</button>

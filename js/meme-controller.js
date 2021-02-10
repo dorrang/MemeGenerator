@@ -3,13 +3,17 @@
 var gCanvas;
 var gCtx;
 
+var gCurrColor = 'white';
+var gCurrStroke = 'black';
+var gCurrText = document.querySelector('.text-input');
+
+
 
 function init() {
     gCanvas = document.getElementById('my-canvas');
     gCtx = gCanvas.getContext('2d');
     renderMems();
     renderKeyWords();
-    console.log('ho')
 };
 
 
@@ -34,18 +38,18 @@ function renderKeyWords() {
 }
 
 
-function rendergMeme() {
-    var img = getImg();
-    var elImg = new Image();
-    drawImg(elImg, img);
-    elImg.src = img.url;
-}
+// function rendergMeme() {
+//     var img = getImg();
+//     var elImg = new Image();
+//     drawImg(elImg, img);
+//     elImg.src = img.url;
+// }
 
-function drawImg(elImg, img) {
-    elImg.onload = () => {
-        gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height);
-    }
-};
+// function drawImg(elImg, img) {
+//     elImg.onload = () => {
+//         gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height);
+//     }
+// };
 
 
 function onEdit(imgId) {
