@@ -53,34 +53,38 @@
         <section class="meme-editor hidden">
             <main class="edit-container flex">
 
-                <div class="editor">
+                <div class="editor-container flex">
                     <div class="canvas-container">
-                        <canvas class="canvas" id="my-canvas" height="450" width="450"></canvas>
-                    </div>
-                    <input class="input-txt text-line" type="text" placeholder="What to say?">
-                    <div class="line-edit">
-                        <div class="edit-btn change-line"><i class="fas fa-exchange-alt flip"></i></div>
-                        <div class="edit-btn add-line"><i class="fas fa-plus"></i></div>
-                        <div class="edit-btn delete-line"><i class="fas fa-trash-alt"></i></div>
-                        <div class="edit-btn move-up"><i class="fas fa-long-arrow-alt-up"></i>
-                        </div>
-                        <div class="edit-btn move-down"><i class="fas fa-long-arrow-alt-down"></i>
-                        </div>
+                        <canvas class="canvas" id="my-canvas" height="480" width="480"></canvas>
                     </div>
 
-                    <div class="text-edit">
-                        <div class="edit-btn font-inc"><i class="fas fa-font"></i><i class="fas fa-plus"></i></div>
-                        <div class="edit-btn font-dec"><i class="fas fa-font"></i><i class="fas fa-minus"></i></div>
-                        <div class="edit-btn text-right"><i class="fas fa-align-left"></i></div>
-                        <div class="edit-btn text-center"><i class="fas fa-align-center"></i></div>
-                        <div class="edit-btn text-left"><i class="fas fa-align-right"></i></div>
-                        <select onchange="onSetFont(this.value)" class="font-family">
-                        <option value="Impact">Impact</option>
-                        <option value="Arial">Arial</option>
-                    </select>
+                    <div class="editor flex">
+                        <input class="input-txt text-line" type="text" placeholder="What to say?">
+                        <div class="line-edit">
+                            <div class="edit-btn change-line"><i class="fas fa-exchange-alt flip"></i></div>
+                            <div class="edit-btn add-line"><i class="fas fa-plus"></i></div>
+                            <div class="edit-btn delete-line"><i class="fas fa-trash-alt"></i></div>
+                            <div class="edit-btn move-up"><i class="fas fa-long-arrow-alt-up"></i></div>
+                            <div class="edit-btn move-down"><i class="fas fa-long-arrow-alt-down"></i></div>
+                        </div>
 
-                        <input class="edit-btn stroke-color" type="color">
-                        <input class="edit-btn text-color" type="color">
+                        <div class="text-edit">
+
+                            <div class="edit-btn font-inc"><i class="fas fa-font"></i><i class="fas fa-plus"></i></div>
+                            <div class="edit-btn font-dec"><i class="fas fa-font"></i><i class="fas fa-minus"></i></div>
+                            <div class="edit-btn text-right"><i class="fas fa-align-left"></i></div>
+                            <div class="edit-btn text-center"><i class="fas fa-align-center"></i></div>
+                            <div class="edit-btn text-left"><i class="fas fa-align-right"></i></div>
+
+                            <select onchange="onSetFont(this.value)" class="font-family">
+                            <option value="Impact">Impact</option>
+                            <option value="Arial">Arial</option>
+
+                        </select>
+
+                            <input class="edit-btn stroke-color" type="color">
+                            <input class="edit-btn text-color" type="color">
+                        </div>
                     </div>
 
                     <div class="share-btns">
