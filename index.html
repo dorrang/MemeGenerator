@@ -23,17 +23,25 @@
     <section class="main-page main-container">
 
         <section class="search-bar">
-            <section class="search-comps">
-                <input class="search-input" type="text" placeholder="Search">
-                <button class="search-btn" onclick="onSearch()"><i class="fas fa-search"></i></button>
-                <button onclick="onShowMore(this)" class="more-btn">More</button>
+            <section class="search-comps flex space-around">
+                <div class="search">
+                    <input class="search-input" type="text" placeholder="Search">
+                    <button class="search-btn" onclick="onSearch()"><i class="fas fa-search"></i></button>
+                </div>
+
+                <div class="show-more">
+                    <div class="key-words">
+                    </div>
+                    <button onclick="onShowMore(this)" class="more-btn">More</button>
+                </div>
+
             </section>
 
-            <div class="key-words"></div>
+
         </section>
 
 
-        <main class="gallery-container">
+        <main class="gallery-container flex">
             <div class="gallery-grid grid">
 
 
@@ -41,7 +49,7 @@
         </main>
 
 
-        <section class="meme-editor" hidden>
+        <section class="meme-editor">
             <main class="edit-container">
 
                 <div class="canvas-container">

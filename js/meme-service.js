@@ -42,7 +42,16 @@ _createKeyWords();
 function _createKeyWords() {
     var keyWords = loadFromStorage('key-words');
     if (!keyWords) {
-        gKeyWords = { 'animals': 3, 'funny': 8, 'explain': 8, 'politics': 4, 'movies': 5, 'sport': 1, 'baby': 4, 'classics': 3 }
+        gKeyWords = [
+            { genre: 'animals', count: 3 },
+            { genre: 'funny', count: 8 },
+            { genre: 'politics', count: 4 },
+            { genre: 'movies', count: 5 },
+            { genre: 'sport', count: 1 },
+            { genre: 'baby', count: 4 },
+            { genre: 'explain', count: 8 },
+            { genre: 'classics', count: 3 }
+        ];
         saveToStorage('key-words', gKeyWords);
     } else {
         gKeyWords = keyWords;
@@ -51,7 +60,6 @@ function _createKeyWords() {
 
 function createMeme(imgId = 1) {
     var meme = {
-        id: makeId(),
         selectedImgId: imgId,
         selectedLineIdx: 0,
         selectedFont: 'Impact',

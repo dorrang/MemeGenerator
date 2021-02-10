@@ -16,7 +16,7 @@ function init() {
 function renderMems() {
     var strHTMLs = gImgs.map(img => {
         return `<div class="grid-item meme-img">
-            <img onclick="onEdit(${img.id})" class="img${img.id}" src="img/${img.id}.jpg" alt="meme-img">
+            <img onclick="getImgById(${img.id})" class="img${img.id}" src="img/${img.id}.jpg" alt="meme-img">
         </div>`
     });
     var elGallery = document.querySelector('.gallery-grid');
@@ -25,12 +25,9 @@ function renderMems() {
 
 function renderKeyWords() {
     var keyWords = gKeyWords;
-    var strHTMLs;
-    // keyWords.forEach(word => {
-    Array.from(keyWords).forEach(word => {
-        console.log(keyWords);
-        console.log(word);
-        strHTMLs += `<span style = font-size: ${word.value + 10}px >${word}</span>`;
+    var strHTMLs = ``;
+    keyWords.forEach(word => {
+        strHTMLs += `<span style="font-size: ${word.count + 15}px" >${word.genre} </span>`;
     });
     var elKeyWords = document.querySelector('.key-words');
     elKeyWords.innerHTML = strHTMLs;

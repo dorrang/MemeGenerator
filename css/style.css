@@ -45,22 +45,30 @@
     display: grid;
     gap: 10px;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    align-items: center;
 }
 
 
 /* /////////////////////////////////////// */
 
+body {
+    background-color: #22252c;
+    color: rgb(255, 248, 239);
+}
+
 .main-container {
     margin: 0 auto;
 }
 
+.gallery-container {
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+}
+
 .gallery-grid {
-    max-height: 800px;
-    max-width: 80%;
-    margin: 50px;
+    background-color: #383b42;
+    width: 85%;
     padding: 10px;
-    background-color: #22252c;
     border-radius: 10px;
 }
 
