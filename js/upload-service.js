@@ -1,7 +1,43 @@
 'use strict'
+//////////////////////////Canvas///////////////////////////////
+
+
+function renderImg(imgUrl) {
+    var image = new Image();
+    image.src = imgUrl;
+    gCtx.drawImage(image, 0, 0, gCanvas.width, gCanvas.height);
+}
+
+function resizeCanvas() {
+    var elContainer = document.querySelector('.canvas-container')
+    gCanvas.width = elContainer.offsetWidth
+    gCanvas.height = elContainer.offsetHeight
+}
+
+
+function drawText() {
+    var canvas = document.getElementById('myCanvas');
+    var context = canvas.getContext('2d');
+
+    context.font = "40px 'Segoe UI'";
+    context.strokeText("HTML5 Rocks!", 20, 100);
+}
+
+function drawImage() {
+
+    var img = new Image();
+    img.src = "img/koala.jpg";
+
+    img.onload = function() {
+        gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
+    };
+}
+
+/////////////////////////Upload-Download///////////////////////
+
 
 function downloadImg(elLink) {
-    var imgContent = gElCanvas.toDataURL('image/jpeg')
+    var imgContent = gCanvas.toDataURL('image/jpeg')
     elLink.href = imgContent
 }
 
@@ -25,21 +61,11 @@ function loadImageFromInput(ev, onImageReady) {
 }
 
 
-function renderImg(img) {
-    gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
-}
-
-function resizeCanvas() {
-    var elContainer = document.querySelector('.canvas-container')
-    gElCanvas.width = elContainer.offsetWidth
-    gElCanvas.height = elContainer.offsetHeight
-}
-
 
 // on submit call to this function
 function uploadImg(elForm, ev) {
     ev.preventDefault();
-    document.getElementById('imgData').value = gElCanvas.toDataURL("image/jpeg");
+    document.getElementById('imgData').value = gCanvas.toDataURL("image/jpeg");
 
     // A function to be called if request succeeds
     function onSuccess(uploadedImgUrl) {

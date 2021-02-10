@@ -48,9 +48,14 @@ function drawImg(elImg, img) {
 };
 
 
-function onEdit() {
+function onEdit(imgId) {
     var elMainPage = document.querySelector('.main-page');
     var elEditPage = document.querySelector('.meme-editor');
     elMainPage.classList.add('hidden');
     elEditPage.classList.remove('hidden');
+    var imgObj = getImgById(imgId);
+    var imgUrl = imgObj.url;
+    console.log(imgUrl);
+    renderImg(imgUrl);
+
 }
