@@ -27,10 +27,10 @@ function renderMems() {
 function renderKeyWords() {
     var keyWords = gKeyWords;
     console.log(keyWords);
-    var strHTMLs = ``;
-    Array.from(gKeyWords).forEach(word => {
+    var strHTMLs;
+    keyWords.forEach(word => {
         console.log(word);
-        strHTMLs += `<span> style="font-size: ${word.value + 10}px"></span> <span></span>`;
+        strHTMLs += `<span> style="font-size: ${word.value + 10}px"></span>`;
     });
     var elKeyWords = document.querySelector('.key-words');
     elKeyWords.innerHTML = strHTMLs;

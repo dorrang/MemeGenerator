@@ -12,7 +12,7 @@
 <body onload="init()">
     <header>
         <nav class="nav-bar-header container">
-            <span class="logo">MEMES</span>
+            <h1 class="logo">MEMES</h1>
             <section class="nav-btns">
                 <button class="gallery-btn">Gallery</button>
                 <button class="my-memes">My Memes</button>
@@ -69,16 +69,13 @@
                         <option value="Arial">Arial</option>
                     </select>
 
-                        <input onchange="onChangeStrokeColor(this)" class="edit-btn stroke-color" type="color">
-                        <input onchange="onChangeFillColor(this)" class="edit-btn text-color" type="color">
+                        <input class="edit-btn stroke-color" type="color">
+                        <input class="edit-btn text-color" type="color">
                     </div>
 
                     <div class="share-btns">
-                        <form class="form " action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
-                            <input name="img" id="imgData" type="hidden" />
-                            <button type="submit" class="share-btn"><i class="fas fa-share-alt"></i> Share</button>
-                            <div class="share-container"></div>
-                        </form>
+                        <button type="submit" class="share-btn"><i class="fas fa-share-alt"></i>Share</button>
+
                         <button class="download-btn" onclick="onDownloadImg()">
                         <a href="#" id="download" download="my-meme.jpg">Download</a>
                     </button>

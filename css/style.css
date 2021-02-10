@@ -44,3 +44,10 @@
 .grid {
     display: grid;
 }
+
+
+/* /////////////////////////////////////// */
+
+.main-container {
+    margin: 0 auto;
+}
