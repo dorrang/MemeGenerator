@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Generator</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body onload="init()">
+    <header>
+        <nav class="nav-bar-header container">
+            <span class="logo">MEMES</span>
+            <section class="nav-btns">
+                <button class="gallery-btn">Gallery</button>
+                <button class="my-memes">My Memes</button>
+            </section>
+        </nav>
+    </header>
+
+    <section class="main-page main-container">
+
+        <section class="search-bar">
+            <section class="search-comps">
+                <input class="search-input" type="text" placeholder="Search">
+                <button class="search-btn" onclick="onSearch()"><i class="fas fa-search"></i></button>
+            </section>
+
+            <div class="key-words"></div>
+            <button onclick="onShowMore(this)" class="more-btn">More</button>
+        </section>
+
+
+        <main class="gallery-container">
+            <div class="gallery-grid grid">
+            </div>
+        </main>
+
+
+        <section class="meme-editor">
+            <main class="edit-container">
+
+                <div class="canvas-container">
+                    <canvas class="canvas" id="my-canvas" height="450" width="450"></canvas>
+                </div>
+
+                <div class="edit-container">
+                    <input class="input-txt text-line" type="text" placeholder="What to say?">
+                    <div class="line-edit">
+                        <div class="edit-btn change-line"><i class="fas fa-exchange-alt flip"></i></div>
+                        <div class="edit-btn add-line"><i class="fas fa-plus"></i></div>
+                        <div class="edit-btn delete-line"><i class="fas fa-trash-alt"></i></div>
+                        <div class="edit-btn move-up"><i class="fas fa-long-arrow-alt-up"></i>
+                        </div>
+                        <div class="edit-btn move-down"><i class="fas fa-long-arrow-alt-down"></i>
+                        </div>
+                    </div>
+
+                    <div class="text-edit">
+                        <div class="edit-btn font-inc"><i class="fas fa-font"></i><i class="fas fa-plus"></i></div>
+                        <div class="edit-btn font-dec"><i class="fas fa-font"></i><i class="fas fa-minus"></i></div>
+                        <div class="edit-btn text-right"><i class="fas fa-align-left"></i></div>
+                        <div class="edit-btn text-center"><i class="fas fa-align-center"></i></div>
+                        <div class="edit-btn text-left"><i class="fas fa-align-right"></i></div>
+                        <select onchange="onSetFont(this.value)" class="font-family">
+                        <option value="Impact">Impact</option>
+                        <option value="Arial">Arial</option>
+                    </select>
+
+                        <input onchange="onChangeStrokeColor(this)" class="edit-btn stroke-color" type="color">
+                        <input onchange="onChangeFillColor(this)" class="edit-btn text-color" type="color">
+                    </div>
+
+                    <div class="share-btns">
+                        <form class="form " action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+                            <input name="img" id="imgData" type="hidden" />
+                            <button type="submit" class="share-btn"><i class="fas fa-share-alt"></i> Share</button>
+                            <div class="share-container"></div>
+                        </form>
+                        <button class="download-btn" onclick="onDownloadImg()">
+                        <a href="#" id="download" download="my-meme.jpg">Download</a>
+                    </button>
+
+                        <button onclick="onSaveMeme()" class="save-btn popup">Save</button>
+
+                    </div>
+                </div>
+
+            </main>
+        </section>
+
+    </section>
+
+    <script src="js/util.js"></script>
+    <script src="js/upload-service.js"></script>
+    <script src="js/meme-service.js"></script>
+    <script src="js/meme-controller.js"></script>
+
+</body>
+
+</html>

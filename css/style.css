@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+}
+
+
+/* ///////////////Fonts/////////////// */
+
+@font-face {
+    font-family: Impact;
+    src: url('../fonts/Impact/impact.ttf');
+}
+
+
+/* ///////////////Helpers/////////////// */
+
+.flip {
+    transform: rotate(90deg);
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.space-around {
+    justify-content: space-around;
+}
+
+.grid {
+    display: grid;
+}
