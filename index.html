@@ -20,43 +20,43 @@
         </nav>
     </header>
 
-    <section class="main-page main-container">
-
-        <section class="search-bar">
-            <section class="search-comps flex space-around">
-                <div class="search">
-                    <input class="search-input" type="text" placeholder="Search">
-                    <button class="search-btn" onclick="onSearch()"><i class="fas fa-search"></i></button>
-                </div>
-
-                <div class="show-more">
-                    <div class="key-words">
+    <section class="main-container">
+        <section class="main-page ">
+            <section class="search-bar">
+                <section class="search-comps flex space-around">
+                    <div class="search">
+                        <input class="search-input" type="text" placeholder="Search">
+                        <button class="search-btn" onclick="onSearch()"><i class="fas fa-search"></i></button>
                     </div>
-                    <button onclick="onShowMore(this)" class="more-btn">More</button>
-                </div>
+
+                    <div class="show-more">
+                        <div class="key-words">
+                        </div>
+                        <button onclick="onShowMore(this)" class="more-btn">More</button>
+                    </div>
+
+                </section>
+
 
             </section>
 
 
+            <main class="gallery-container flex">
+                <div class="gallery-grid grid">
+
+
+                </div>
+            </main>
+
         </section>
 
-
-        <main class="gallery-container flex">
-            <div class="gallery-grid grid">
-
-
-            </div>
-        </main>
-
-
-        <section class="meme-editor">
-            <main class="edit-container">
-
+        <section class="meme-editor hidden">
+            <main class="edit-container flex">
                 <div class="canvas-container">
                     <canvas class="canvas" id="my-canvas" height="450" width="450"></canvas>
                 </div>
 
-                <div class="edit-container">
+                <div class="editor">
                     <input class="input-txt text-line" type="text" placeholder="What to say?">
                     <div class="line-edit">
                         <div class="edit-btn change-line"><i class="fas fa-exchange-alt flip"></i></div>

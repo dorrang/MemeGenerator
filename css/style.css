@@ -47,6 +47,10 @@
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 }
 
+.hidden {
+    display: none;
+}
+
 
 /* /////////////////////////////////////// */
 
@@ -59,13 +63,15 @@ body {
     margin: 0 auto;
 }
 
-.gallery-container {
+.gallery-container,
+.edit-container {
     align-items: center;
     justify-content: center;
     padding: 50px;
 }
 
-.gallery-grid {
+.gallery-grid,
+.editor {
     background-color: #383b42;
     width: 85%;
     padding: 10px;

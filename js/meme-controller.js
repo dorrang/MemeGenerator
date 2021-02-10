@@ -16,7 +16,7 @@ function init() {
 function renderMems() {
     var strHTMLs = gImgs.map(img => {
         return `<div class="grid-item meme-img">
-            <img onclick="getImgById(${img.id})" class="img${img.id}" src="img/${img.id}.jpg" alt="meme-img">
+            <img onclick="onEdit(${img.id})" class="img${img.id}" src="img/${img.id}.jpg" alt="meme-img">
         </div>`
     });
     var elGallery = document.querySelector('.gallery-grid');
