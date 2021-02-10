@@ -25,7 +25,7 @@
             <section class="search-bar">
                 <section class="search-comps flex space-around">
                     <div class="search">
-                        <input class="search-input" type="text" placeholder="Search">
+                        <input class="search-input flex" type="text" placeholder="Search">
                         <button class="search-btn" onclick="onSearch()"><i class="fas fa-search"></i></button>
                     </div>
 
@@ -85,17 +85,19 @@
                             <input class="edit-btn stroke-color" type="color">
                             <input class="edit-btn text-color" type="color">
                         </div>
-                    </div>
-
-                    <div class="share-btns">
-                        <button type="submit" class="share-btn"><i class="fas fa-share-alt"></i>Share</button>
-                        <button>
+                        <div class="share-btns">
+                            <button type="submit" class="share-btn"><i class="fas fa-share-alt"></i>Share</button>
+                            <button>
                             <a href="#" class="download" onclick="downloadCanvas(this)" download="my-meme.jpg">Download</a>
                         </button>
 
-                        <button onclick="onSaveMeme()" class="save-btn popup">Save</button>
+                            <button onclick="onSaveMeme()" class="save-btn popup">Save</button>
+
+                        </div>
 
                     </div>
+
+
                 </div>
 
             </main>

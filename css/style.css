@@ -72,22 +72,27 @@ body {
 
 .gallery-grid,
 .editor-container {
-    position: relative;
     background-color: #383b42;
     width: 85%;
-    padding: 25px;
+    padding: 13px;
     border-radius: 10px;
 }
 
 .editor {
+    position: relative;
     width: 50%;
     margin: 0 20px;
 }
 
 .share-btns {
     position: absolute;
-    bottom: 5px;
-    width: 100%;
+    bottom: 13px;
+    max-width: 100%;
+    left: 50%;
+}
+
+.share-btns button {
+    margin: 5px;
 }
 
 .grid-item {
