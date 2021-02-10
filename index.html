@@ -26,20 +26,22 @@
             <section class="search-comps">
                 <input class="search-input" type="text" placeholder="Search">
                 <button class="search-btn" onclick="onSearch()"><i class="fas fa-search"></i></button>
+                <button onclick="onShowMore(this)" class="more-btn">More</button>
             </section>
 
             <div class="key-words"></div>
-            <button onclick="onShowMore(this)" class="more-btn">More</button>
         </section>
 
 
         <main class="gallery-container">
             <div class="gallery-grid grid">
+
+
             </div>
         </main>
 
 
-        <section class="meme-editor">
+        <section class="meme-editor" hidden>
             <main class="edit-container">
 
                 <div class="canvas-container">
@@ -75,10 +77,9 @@
 
                     <div class="share-btns">
                         <button type="submit" class="share-btn"><i class="fas fa-share-alt"></i>Share</button>
-
-                        <button class="download-btn" onclick="onDownloadImg()">
-                        <a href="#" id="download" download="my-meme.jpg">Download</a>
-                    </button>
+                        <button>
+                            <a href="#" class="download" onclick="downloadCanvas(this)" download="my-meme.jpg">Download</a>
+                        </button>
 
                         <button onclick="onSaveMeme()" class="save-btn popup">Save</button>
 

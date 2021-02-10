@@ -9,16 +9,15 @@ function init() {
     gCtx = gCanvas.getContext('2d');
     renderMems();
     renderKeyWords();
-}
+    console.log('ho')
+};
 
 
 function renderMems() {
     var strHTMLs = gImgs.map(img => {
         return `<div class="grid-item meme-img">
-            <img onclick="onEdit(${img.id}) class="img${img.id}" 
-            src="img/${img.id}.jpg" alt="meme-img">
-        </div>
-        `
+            <img onclick="onEdit(${img.id})" class="img${img.id}" src="img/${img.id}.jpg" alt="meme-img">
+        </div>`
     });
     var elGallery = document.querySelector('.gallery-grid');
     elGallery.innerHTML = strHTMLs.join('');
@@ -26,11 +25,12 @@ function renderMems() {
 
 function renderKeyWords() {
     var keyWords = gKeyWords;
-    console.log(keyWords);
     var strHTMLs;
-    keyWords.forEach(word => {
+    // keyWords.forEach(word => {
+    Array.from(keyWords).forEach(word => {
+        console.log(keyWords);
         console.log(word);
-        strHTMLs += `<span> style="font-size: ${word.value + 10}px"></span>`;
+        strHTMLs += `<span style = font-size: ${word.value + 10}px >${word}</span>`;
     });
     var elKeyWords = document.querySelector('.key-words');
     elKeyWords.innerHTML = strHTMLs;
@@ -52,8 +52,8 @@ function drawImg(elImg, img) {
 
 
 function onEdit() {
-    const elHomePage = document.querySelector('.main-page');
-    const elEditPage = document.querySelector('.meme-editor');
-    elHomePage.classList.add('hidden');
+    var elMainPage = document.querySelector('.main-page');
+    var elEditPage = document.querySelector('.meme-editor');
+    elMainPage.classList.add('hidden');
     elEditPage.classList.remove('hidden');
 }
