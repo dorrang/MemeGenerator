@@ -33,6 +33,58 @@ function drawImage() {
     };
 }
 
+/////////////////////Touch & Mouse Events///////////////////////
+const gTouchEvs = ['touchstart', 'touchmove', 'touchend'];
+var gStartPos;
+
+function addListeners() {
+    addMouseListeners();
+    addTouchListeners();
+    window.addEventListener('resize', () => { renderCanvas() });
+}
+
+function addMouseListeners() {
+    gElCanvas.addEventListener('mousemove', onMove);
+    gElCanvas.addEventListener('mousedown', onDown);
+    gElCanvas.addEventListener('mouseup', onUp);
+}
+
+function addTouchListeners() {
+    gElCanvas.addEventListener('touchmove', onMove);
+    gElCanvas.addEventListener('touchstart', onDown);
+    gElCanvas.addEventListener('touchend', onUp);
+}
+
+function onDown(ev) {
+    const pos = getEvPos(ev);
+}
+
+function onMove(ev) {
+    const pos = getEvPos(ev);
+}
+
+function onUp() {
+
+}
+
+function getEvPos(ev) {
+    var pos = {
+        x: ev.offsetX,
+        y: ev.offsetY
+    };
+
+    if (gTouchEvs.includes(ev.type)) {
+        ev.preventDefault();
+        ev = ev.changedTouches[0];
+        pos = {
+            x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+            y: ev.pageY - ev.target.offsetTop - ev.target.clientTop
+        };
+    };
+    return pos;
+}
+
+
 /////////////////////////Upload-Download///////////////////////
 
 
