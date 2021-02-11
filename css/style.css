@@ -78,6 +78,10 @@ body {
     border-radius: 10px;
 }
 
+.canvas-container {
+    padding: 2px 0;
+}
+
 .editor {
     position: relative;
     width: 50%;
@@ -93,6 +97,10 @@ body {
 
 .share-btns button {
     margin: 0 5px 0 0;
+}
+
+.icons-container {
+    background-color: #51545c;
 }
 
 

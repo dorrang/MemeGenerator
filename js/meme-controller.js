@@ -14,6 +14,7 @@ function init() {
     gCtx = gCanvas.getContext('2d');
     renderMems();
     renderKeyWords();
+    addListeners();
 };
 
 

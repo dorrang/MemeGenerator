@@ -89,12 +89,12 @@
                                 <input class="edit-btn stroke-color" onchange="onChangeStroke(this.value)" type="color" value="#000000">
                             </div>
                         </div>
-                        <div class="icons-container">
-
+                        <div class="icons-container flex">
+                            Icons
                         </div>
 
                         <div class="share-btns">
-                            <button type="submit" class="share-btn"><i class="fas fa-share-alt"></i>Share</button>
+                            <button type="submit" onsubmit="uploadImg(this, event)" class="share-btn"><i class="fas fa-share-alt"></i>Share</button>
                             <button>
                             <a href="#" class="download" onclick="downloadCanvas(this)" download="my-meme.jpg">Download</a>
                         </button>

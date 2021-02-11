@@ -64,13 +64,13 @@ function createMeme(imgId = 1) {
         selectedLineIdx: 0,
         selectedFont: 'Impact',
         lines: [createLine()]
-    }
+    };
     return meme;
 }
 
 function createLine() {
     var line = {
-        txt: '"Type Something"',
+        txt: '"What to say?"',
         size: 35,
         align: 'center',
         'fill-color': 'white',

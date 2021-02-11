@@ -1,5 +1,7 @@
 'use strict'
 
+const gElIcons = document.querySelector('.icons-container');
+// const gTextInput = document.querySelector('.text-input');
 
 
 function onChangeColor(color) {
@@ -7,7 +9,6 @@ function onChangeColor(color) {
     gCtx.fillStyle = color;
     gCtx.save();
     gCurrColor = color;
-
 }
 
 function onChangeStroke(color) {
@@ -44,10 +45,11 @@ function drawText(x, y) {
 }
 
 
+
+
 function draw(ev) {
     const { offsetX, offsetY } = ev;
     drawText(offsetX, offsetY);
-
 }
 
 /////////////////////Touch & Mouse Events///////////////////////
@@ -58,30 +60,49 @@ var gStartPos;
 function addListeners() {
     addMouseListeners();
     addTouchListeners();
+    addInputListener();
     window.addEventListener('resize', () => { renderCanvas() });
 }
 
+function addInputListener() {
+    gCurrText.addEventListener('input', onKeyChange);
+
+}
+
 function addMouseListeners() {
-    gElCanvas.addEventListener('mousemove', onMove);
-    gElCanvas.addEventListener('mousedown', onDown);
-    gElCanvas.addEventListener('mouseup', onUp);
+    gElIcons.addEventListener('mousemove', onMove);
+    gElIcons.addEventListener('mousedown', onDown);
+    gCanvas.addEventListener('mousedown', onDown);
+    gElIcons.addEventListener('mouseup', onUp);
 }
 
 function addTouchListeners() {
-    gElCanvas.addEventListener('touchmove', onMove);
-    gElCanvas.addEventListener('touchstart', onDown);
-    gElCanvas.addEventListener('touchend', onUp);
+    gElIcons.addEventListener('touchmove', onMove);
+    gElIcons.addEventListener('touchstart', onDown);
+    gCanvas.addEventListener('touchstart', onDown);
+    gElIcons.addEventListener('touchend', onUp);
+}
+
+function onKeyChange(ev) {
+    drawText(gCanvas.width / 2, 150);
+    console.log(ev);
 }
 
 function onDown(ev) {
     const pos = getEvPos(ev);
+    console.log(pos, ev)
 }
 
 function onMove(ev) {
     const pos = getEvPos(ev);
+    console.log(pos)
+
 }
 
-function onUp() {
+function onUp(ev) {
+    const pos = getEvPos(ev);
+    console.log(pos)
+
 
 }
 
