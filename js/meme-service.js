@@ -10,8 +10,9 @@ var gMeme = {
         txt: 'I never eat Falafel',
         size: 20,
         align: 'left',
-        'fill-color': 'red',
-        'stroke-color': 'black'
+        font: 'Impact',
+        color: 'red',
+        strokeColor: 'black'
     }]
 };
 
@@ -73,11 +74,13 @@ function createLine() {
         txt: '"What to say?"',
         size: 35,
         align: 'center',
-        'fill-color': 'white',
-        'stroke-color': 'black'
+        color: 'white',
+        strokeColor: 'black'
     }
     return line;
 };
+
+
 
 function getImg() {
     var imgId = gMeme.selectedImgId;
@@ -90,4 +93,9 @@ function getImgById(imgId) {
         return imgId === Img.id;
     });
     return img;
+};
+
+
+function updategMeme(imgId) {
+    gMeme = createMeme(imgId);
 };

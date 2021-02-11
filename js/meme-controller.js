@@ -39,18 +39,6 @@ function renderKeyWords() {
 }
 
 
-// function rendergMeme() {
-//     var img = getImg();
-//     var elImg = new Image();
-//     drawImg(elImg, img);
-//     elImg.src = img.url;
-// }
-
-// function drawImg(elImg, img) {
-//     elImg.onload = () => {
-//         gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height);
-//     }
-// };
 
 
 function onEdit(imgId) {
@@ -62,4 +50,5 @@ function onEdit(imgId) {
     var imgUrl = imgObj.url;
     console.log(imgUrl);
     renderImg(imgUrl);
+    updategMeme(imgId);
 }

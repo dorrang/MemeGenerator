@@ -61,20 +61,20 @@
                     <div class="editor flex">
                         <input class="text-input text-line" type="text" placeholder="What to say?">
                         <div class="line-edit">
-                            <div class="edit-btn change-line"><i class="fas fa-exchange-alt flip"></i></div>
-                            <div class="edit-btn add-line"><i class="fas fa-plus"></i></div>
-                            <div class="edit-btn delete-line"><i class="fas fa-trash-alt"></i></div>
-                            <div class="edit-btn move-up"><i class="fas fa-long-arrow-alt-up"></i></div>
-                            <div class="edit-btn move-down"><i class="fas fa-long-arrow-alt-down"></i></div>
+                            <div class="edit-btn move-up"><i class="fas fa-long-arrow-alt-up" onclick="onMoveUp()"></i></div>
+                            <div class="edit-btn move-down"><i class="fas fa-long-arrow-alt-down" onclick="onMoveDown()"></i></div>
+                            <div class="edit-btn add-line"><i class="fas fa-plus" onclick="onAddLine()"></i></div>
+                            <div class="edit-btn change-line"><i class="fas fa-exchange-alt flip" onclick="onChangeLine()"></i></div>
+                            <div class="edit-btn delete-line"><i class="fas fa-trash-alt" onclick="onDelete()"></i></div>
                         </div>
 
                         <div class="text-edit flex">
 
-                            <div class="edit-btn font-inc"><i class="fas fa-font"></i><i class="fas fa-plus"></i></div>
-                            <div class="edit-btn font-dec"><i class="fas fa-font"></i><i class="fas fa-minus"></i></div>
-                            <div class="edit-btn text-right"><i class="fas fa-align-left"></i></div>
-                            <div class="edit-btn text-center"><i class="fas fa-align-center"></i></div>
-                            <div class="edit-btn text-left"><i class="fas fa-align-right"></i></div>
+                            <div class="edit-btn font-inc"><i class="fas fa-font"></i><i class="fas fa-plus" onclick="onIncFont()"></i></div>
+                            <div class="edit-btn font-dec"><i class="fas fa-font"></i><i class="fas fa-minus" onclick="onDecFont()"></i></div>
+                            <div class="edit-btn text-right"><i class="fas fa-align-left" onclick="alignText('left')"></i></div>
+                            <div class="edit-btn text-center"><i class="fas fa-align-center" onclick="alignText('center')"></i></div>
+                            <div class="edit-btn text-left"><i class="fas fa-align-right" onclick="alignText('right')"></i></div>
                         </div>
                         <div class="user-pick flex">
                             <select onchange="onSetFont(this.value)" class="font-pick">
