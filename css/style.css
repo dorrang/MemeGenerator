@@ -65,6 +65,15 @@ body {
     color: rgb(255, 248, 239);
     font-family: 'Noto Sans JP', sans-serif;
     text-shadow: 1px 1px 7px rgba(0, 0, 0, 0.699);
+    text-align: center;
+}
+
+.kw {
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    color: rgba(255, 255, 255, 0.719);
 }
 
 .logo {
@@ -204,6 +213,7 @@ li {
 .pick {
     flex-direction: column;
     margin: 10px;
+    align-items: center;
 }
 
 .color-pick input {
@@ -213,7 +223,7 @@ li {
 .icon {
     height: 100px;
     width: 100px;
-    cursor: pointer;
+    cursor: grab;
 }
 
 .bot {

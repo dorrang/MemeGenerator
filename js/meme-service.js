@@ -37,7 +37,6 @@ var gImgs = [
     { id: 18, url: 'img/18.jpg', keywords: ['funny', 'explain', 'movies'] },
 ];
 
-
 _createKeyWords();
 
 function _createKeyWords() {
@@ -80,8 +79,6 @@ function createLine() {
     return line;
 };
 
-
-
 function getImg() {
     var imgId = gMeme.selectedImgId;
     var img = getImgById(imgId);
@@ -99,3 +96,37 @@ function getImgById(imgId) {
 function updategMeme(imgId) {
     gMeme = createMeme(imgId);
 };
+
+///////////////////////////////Icons///////////////////////////////
+
+function createIcons() {
+    for (var i = 0; i < 50; i++) {
+        var icon = createIcon(i);
+        gIcons.push(icon);
+    };
+    console.log(gIcons);
+}
+
+function createIcon(id) {
+    var icon = { idx: id };
+    return icon;
+}
+
+function getIcons() {
+    var  startIdx  =  gPageIdx * 4;    
+    return  gIcons.slice(startIdx,  startIdx  +  4)
+}
+
+function nextPage() {
+    gPageIdx++;
+    if (gPageIdx * 4 >= gIcons.length) {
+        gPageIdx = 0;
+    }
+}
+
+function prevPage() {
+    gPageIdx--;
+    if (gPageIdx * 4 <= 0) {
+        gPageIdx = ((gIcons.length - 1) / 4);
+    }
+}

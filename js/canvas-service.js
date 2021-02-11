@@ -72,30 +72,43 @@ function addInputListener() {
 function addMouseListeners() {
     gElIcons.addEventListener('mousemove', onMove);
     gElIcons.addEventListener('mousedown', onDown);
-    gCanvas.addEventListener('mousedown', onDown);
+    gCanvas.addEventListener('mouseup', onDrop);
     gElIcons.addEventListener('mouseup', onUp);
+    gCanvas.addEventListener('mouseup', onUp);
 }
 
 function addTouchListeners() {
     gElIcons.addEventListener('touchmove', onMove);
     gElIcons.addEventListener('touchstart', onDown);
-    gCanvas.addEventListener('touchstart', onDown);
+    gCanvas.addEventListener('touchend', onDrop);
     gElIcons.addEventListener('touchend', onUp);
 }
 
 function onKeyChange(ev) {
+    var text = setInterval(drawText(gCanvas.width / 2, 150), 3000);
     drawText(gCanvas.width / 2, 150);
     console.log(ev);
+    return text;
+}
+
+function onDrop(ev) {
+    const pos = getEvPos(ev);
+    console.log(pos)
+    console.log(ev)
+    var image = new Image();
+    image.src = ev.target.src;
+    gCtx.drawImage(image, pos.x, pos.y, 100, 100);
 }
 
 function onDown(ev) {
     const pos = getEvPos(ev);
+
     console.log(pos, ev)
 }
 
 function onMove(ev) {
     const pos = getEvPos(ev);
-    console.log(pos)
+    // console.log(pos)
 
 }
 

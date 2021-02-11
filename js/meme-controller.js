@@ -32,14 +32,11 @@ function renderKeyWords() {
     var keyWords = gKeyWords;
     var strHTMLs = ``;
     keyWords.forEach(word => {
-        strHTMLs += `<span style="font-size: ${word.count + 15}px" >${word.genre} </span>`;
+        strHTMLs += `<span class="kw" onclick="onFilter(${word.genre})" style="font-size: ${word.count + 15}px" >${word.genre} </span>`;
     });
     var elKeyWords = document.querySelector('.key-words');
     elKeyWords.innerHTML = strHTMLs;
 }
-
-
-
 
 function onEdit(imgId) {
     var elMainPage = document.querySelector('.main-page');
@@ -56,6 +53,12 @@ function onEdit(imgId) {
 
 
 ///////////////////////////////Icons///////////////////////////////
+
+
+var gIcons = [];
+var  gPageIdx  = 0;
+
+createIcons();
 
 function onNextPage() {
     nextPage();
@@ -74,41 +77,4 @@ function renderIcons() {
     });
     var elIcons = document.querySelector('.icon-table-row');
     elIcons.innerHTML = strHtmls.join('');
-}
-
-var gIcons = [];
-var  gPageIdx  = 0;
-
-createIcons();
-
-function createIcons() {
-    for (var i = 0; i < 50; i++) {
-        var icon = createIcon(i);
-        gIcons.push(icon);
-    };
-    console.log(gIcons);
-}
-
-function createIcon(id) {
-    var icon = { idx: id };
-    return icon;
-}
-
-function getIcons() {
-    var  startIdx  =  gPageIdx * 4;    
-    return  gIcons.slice(startIdx,  startIdx  +  4)
-}
-
-function nextPage() {
-    gPageIdx++;
-    if (gPageIdx * 4 >= gIcons.length) {
-        gPageIdx = 0;
-    }
-}
-
-function prevPage() {
-    gPageIdx--;
-    if (gPageIdx * 4 <= 0) {
-        gPageIdx = ((gIcons.length - 1) / 4);
-    }
 }
