@@ -61,5 +61,4 @@ function onEdit(imgId) {
     var imgUrl = imgObj.url;
     console.log(imgUrl);
     renderImg(imgUrl);
-
 }
