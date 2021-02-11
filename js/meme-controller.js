@@ -108,7 +108,7 @@ function nextPage() {
 
 function prevPage() {
     gPageIdx--;
-    if (gPageIdx * 4 < 0) {
+    if (gPageIdx * 4 <= 0) {
         gPageIdx = ((gIcons.length - 1) / 4);
     }
 }

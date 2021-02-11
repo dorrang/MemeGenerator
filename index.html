@@ -6,33 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meme Generator</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body onload="init()">
     <header>
-        <nav class="nav-bar-header container">
-            <h1 class="logo">MEMES</h1>
-            <section class="nav-btns">
-                <button class="gallery-btn">Gallery</button>
-                <button class="my-memes">My Memes</button>
-            </section>
+        <nav class="nav-bar-header container flex">
+            <h1 class="logo center-item">MEMES</h1>
+            <ul class="menu-list flex">
+                <li><a class="center-item" onclick="">Gallery</a></li>
+                <li><a class="center-item">My Memes</a></li>
+            </ul>
         </nav>
     </header>
 
     <section class="main-container">
         <section class="main-page ">
             <section class="search-bar">
-                <section class="search-comps flex space-around">
-                    <div class="search">
+                <section class="search-comps flex justify-center">
+                    <div class="search flex">
                         <input class="search-input flex" type="text" placeholder="Search">
                         <button class="search-btn" onclick="onSearch()"><i class="fas fa-search"></i></button>
                     </div>
 
-                    <div class="show-more">
+                    <div class="popular-search flex">
                         <div class="key-words">
                         </div>
-                        <button onclick="onShowMore(this)" class="more-btn">More</button>
+                        <!-- <button onclick="onShowMore(this)" class="more-btn">More</button> -->
                     </div>
 
                 </section>

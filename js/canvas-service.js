@@ -61,7 +61,7 @@ function addListeners() {
     addMouseListeners();
     addTouchListeners();
     addInputListener();
-    window.addEventListener('resize', () => { renderCanvas() });
+    // window.addEventListener('resize', () => { renderCanvas() });
 }
 
 function addInputListener() {
