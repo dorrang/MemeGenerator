@@ -93,14 +93,8 @@ function onKeyChange(ev) {
 }
 
 function onDrop(ev) {
-    console.log(ev.target.src);
-    const dx = pos.x - gStartPos.x;
-    const dy = pos.y - gStartPos.y;
+    const pos = getEvPos(ev);
 
-    gCircle.pos.x += dx;
-    gCircle.pos.y += dy;
-
-    gStartPos = pos;
     renderImg(ev.target.src);
     renderIcon(pos);
     // const pos = getEvPos(ev);
@@ -114,6 +108,7 @@ var gCurrImgUrl;
 function onDown(ev) {
     const pos = getEvPos(ev);
     gCurrImgUrl = ev.target.src;
+    console.log(ev)
 
     // console.log(pos, ev)
 }
