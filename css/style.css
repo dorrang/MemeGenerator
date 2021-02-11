@@ -87,6 +87,7 @@ body {
     width: 50%;
     margin: 0 0 0 20px;
     flex-direction: column;
+    padding: 10px 0;
 }
 
 .share-btns {
@@ -101,6 +102,10 @@ body {
 
 .icons-container {
     background-color: #51545c;
+    border-radius: 10px;
+    height: 140px;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -130,6 +135,32 @@ body {
 
 .color-pick {
     flex-wrap: wrap;
+}
+
+.color-pick p {
+    margin: 0;
+}
+
+.pick {
+    flex-direction: column;
+    margin: 10px;
+}
+
+.color-pick input {
+    cursor: pointer;
+}
+
+.icon {
+    height: 100px;
+    width: 100px;
+    cursor: pointer;
+}
+
+.bot {
+    border: none;
+    background: none;
+    color: rgb(240, 240, 240);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.425);
     cursor: pointer;
 }
 

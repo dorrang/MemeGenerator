@@ -50,5 +50,65 @@ function onEdit(imgId) {
     var imgUrl = imgObj.url;
     console.log(imgUrl);
     renderImg(imgUrl);
+    renderIcons();
     updategMeme(imgId);
+}
+
+
+///////////////////////////////Icons///////////////////////////////
+
+function onNextPage() {
+    nextPage();
+    renderIcons();
+}
+
+function onPrevPage() {
+    prevPage();
+    renderIcons();
+}
+
+function renderIcons() {
+    var icons = getIcons();
+    var strHtmls = icons.map(function(icon) {
+        return `<td><img class="icon" src="img/icons/${icon.idx}.png" alt="${icon.idx}"></td>`;
+    });
+    var elIcons = document.querySelector('.icon-table-row');
+    elIcons.innerHTML = strHtmls.join('');
+}
+
+var gIcons = [];
+var  gPageIdx  = 0;
+
+createIcons();
+
+function createIcons() {
+    for (var i = 0; i < 50; i++) {
+        var icon = createIcon(i);
+        gIcons.push(icon);
+    };
+    console.log(gIcons);
+}
+
+function createIcon(id) {
+    var icon = { idx: id };
+    return icon;
+}
+
+function getIcons() {
+    var  startIdx  =  gPageIdx * 4;    
+    return  gIcons.slice(startIdx,  startIdx  +  4)
+}
+
+function nextPage() {
+    gPageIdx++;
+    if (gPageIdx * 4 >= gIcons.length) {
+        gPageIdx = 0;
+    }
+}
+
+function prevPage() {
+    gPageIdx--;
+    if (gPageIdx * 4 < 0) {
+        gPageIdx = ((gIcons.length - 1) / 4);
+    }
 }

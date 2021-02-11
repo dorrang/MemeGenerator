@@ -81,16 +81,24 @@
                             <option value="Impact">Impact</option>
                             <option value="Arial">Arial</option>
                              </select>
-                            <div class="color-pick flex">
-                                <p>Text Color</p>
-                                <input class="edit-btn text-color" onchange="onChangeColor(this.value)" type="color" value="#ffffff">
-
-                                <p>Stroke Color</p>
-                                <input class="edit-btn stroke-color" onchange="onChangeStroke(this.value)" type="color" value="#000000">
+                            <div class="color-pick flex justify-center">
+                                <div class="pick flex">
+                                    <p>Text Color</p>
+                                    <input class="edit-btn text-color" onchange="onChangeColor(this.value)" type="color" value="#ffffff">
+                                </div>
+                                <div class="pick flex">
+                                    <p>Stroke Color</p>
+                                    <input class="edit-btn stroke-color" onchange="onChangeStroke(this.value)" type="color" value="#000000">
+                                </div>
                             </div>
                         </div>
                         <div class="icons-container flex">
-                            Icons
+                            <button data-trans="next-page" class="bot" onclick="onPrevPage()">««</button>
+                            <table class="icon-table">
+                                <tr class="icon-table-row"></tr>
+                            </table>
+                            <button data-trans="prev-page" class="bot" onclick="onNextPage()">»»</button>
+
                         </div>
 
                         <div class="share-btns">
