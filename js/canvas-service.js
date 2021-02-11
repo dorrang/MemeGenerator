@@ -72,9 +72,9 @@ function addInputListener() {
 function addMouseListeners() {
     gElIcons.addEventListener('mousemove', onMove);
     gElIcons.addEventListener('mousedown', onDown);
-    gCanvas.addEventListener('mouseup', onDrop);
     gElIcons.addEventListener('mouseup', onUp);
     gCanvas.addEventListener('mouseup', onUp);
+    gCanvas.addEventListener('mouseup', onDrop);
 }
 
 function addTouchListeners() {
@@ -85,38 +85,55 @@ function addTouchListeners() {
 }
 
 function onKeyChange(ev) {
-    var text = setInterval(drawText(gCanvas.width / 2, 150), 3000);
+    // var text = setInterval(drawText(gCanvas.width / 2, 150), 3000);
+
     drawText(gCanvas.width / 2, 150);
     console.log(ev);
-    return text;
+    // return text;
 }
 
 function onDrop(ev) {
-    const pos = getEvPos(ev);
-    console.log(pos)
-    console.log(ev)
-    var image = new Image();
-    image.src = ev.target.src;
-    gCtx.drawImage(image, pos.x, pos.y, 100, 100);
+    console.log(ev.target.src);
+    const dx = pos.x - gStartPos.x;
+    const dy = pos.y - gStartPos.y;
+
+    gCircle.pos.x += dx;
+    gCircle.pos.y += dy;
+
+    gStartPos = pos;
+    renderImg(ev.target.src);
+    renderIcon(pos);
+    // const pos = getEvPos(ev);
+    // console.log(pos)
+    // console.log(ev)
+
 }
+
+var gCurrImgUrl;
 
 function onDown(ev) {
     const pos = getEvPos(ev);
+    gCurrImgUrl = ev.target.src;
 
-    console.log(pos, ev)
+    // console.log(pos, ev)
 }
 
 function onMove(ev) {
     const pos = getEvPos(ev);
-    // console.log(pos)
 
+    // console.log(pos)
 }
+
+function renderIcon(pos) {
+    var image = new Image();
+    image.src = gCurrImgUrl;
+    gCtx.drawImage(image, pos.x, pos.y, 100, 100);
+}
+
 
 function onUp(ev) {
     const pos = getEvPos(ev);
-    console.log(pos)
-
-
+    // console.log(pos)
 }
 
 function getEvPos(ev) {

@@ -70,7 +70,7 @@ function createMeme(imgId = 1) {
 
 function createLine() {
     var line = {
-        txt: '"What to say?"',
+        txt: gCurrText,
         size: 35,
         align: 'center',
         color: 'white',
