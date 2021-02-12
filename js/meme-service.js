@@ -141,7 +141,7 @@ function moveDown() {
 function changeLine() {
     if (gMeme.selectedLineIdx === 0)
         gMeme.selectedLineIdx = 1;
-    if (gMeme.selectedLineIdx === 1) {
+    else if (gMeme.selectedLineIdx === 1) {
         gMeme.selectedLineIdx = 0;
     }
     console.log(gMeme.selectedLineIdx);

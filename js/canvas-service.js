@@ -104,7 +104,7 @@ function addMouseListeners() {
     gElIcons.addEventListener('mouseup', onUp);
     gCanvas.addEventListener('mouseup', onUp);
     gCanvas.addEventListener('mouseup', onDrop);
-    gCanvas.addEventListener('mousedown', isClicked);
+    // gCanvas.addEventListener('mousedown', isClicked);
 }
 
 function addTouchListeners() {

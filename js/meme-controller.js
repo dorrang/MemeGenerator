@@ -56,7 +56,6 @@ function onGallery() {
     var elEditPage = document.querySelector('.meme-editor');
     elMainPage.classList.remove('hidden');
     elEditPage.classList.add('hidden');
-
 }
 
 function onChangeLine() {
@@ -104,6 +103,12 @@ function alignText(direction) {
     drawText(gCanvas.width / 2, gLineHeight);
 }
 
+function onDelete() {
+    console.log(gMeme.selectedLineIdx)
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1);
+    renderCanvasImg(`img/${gMeme.selectedImgId}.jpg`);
+    drawText(gCanvas.width / 2, gLineHeight);
+}
 
 ///////////////////////////////Icons///////////////////////////////
 
