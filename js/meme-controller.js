@@ -50,6 +50,18 @@ function onEdit(imgId) {
     gMeme = createMeme(imgId);
 }
 
+function onMoveUp() {
+    moveUp();
+}
+
+function onMoveDown() {
+    moveDown();
+}
+
+function onAddLine() {
+    addLine();
+}
+
 
 ///////////////////////////////Icons///////////////////////////////
 

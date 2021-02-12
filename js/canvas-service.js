@@ -31,6 +31,7 @@ function renderIcon(pos) {
     var image = new Image();
     image.src = gCurrIconUrl;
     gCtx.drawImage(image, pos.x, pos.y, 100, 100);
+
 }
 
 function resizeCanvas() {
@@ -46,8 +47,8 @@ function drawText(x, y) {
     gCtx.fillStyle = gCurrColor;
     gCtx.font = '40px Impact';
     gCtx.textAlign = 'center';
-    gCtx.fillText(gCurrText.value, x, y);
-    gCtx.strokeText(gCurrText.value, x, y);
+    gCtx.fillText(gCurrText.value, x, gLineHeight);
+    gCtx.strokeText(gCurrText.value, x, gLineHeight);
 }
 
 function draw(ev) {
@@ -90,8 +91,8 @@ function addTouchListeners() {
 function onKeyChange(ev) {
     var currUrl = `img/${gMeme.selectedImgId}.jpg`;
     renderCanvasImg(currUrl);
-    drawText(gCanvas.width / 2, 150);
-    console.log(ev);
+    drawText(gCanvas.width / 2, 60);
+    // console.log(ev);
     // return text;
 }
 

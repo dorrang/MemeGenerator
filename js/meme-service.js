@@ -97,6 +97,26 @@ function updategMeme(imgId) {
     gMeme = createMeme(imgId);
 };
 
+///////////////////////////////Edit-Funcs///////////////////////////////
+var gLineHeight = 60;
+
+function moveUp() {
+    gLineHeight -= 5;
+    var currUrl = `img/${gMeme.selectedImgId}.jpg`;
+    renderCanvasImg(currUrl);
+    drawText(gCanvas.width / 2, gLineHeight);
+}
+
+function moveDown() {
+    gLineHeight += 5;
+    var currUrl = `img/${gMeme.selectedImgId}.jpg`;
+    renderCanvasImg(currUrl);
+    drawText(gCanvas.width / 2, gLineHeight);
+}
+
+
+
+
 ///////////////////////////////Icons///////////////////////////////
 
 function createIcons() {
