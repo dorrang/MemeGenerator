@@ -62,8 +62,15 @@ function drawText(x, y) {
         gCtx.strokeText(gCurrText.value, x, gSecLineHeight);
 
     } else {
-        gCtx.fillText(gCurrText.value, x, gLineHeight);
-        gCtx.strokeText(gCurrText.value, x, gLineHeight);
+        if (gMeme.lines.length === 1) {
+            gCtx.fillText(gCurrText.value, x, gLineHeight);
+            gCtx.strokeText(gCurrText.value, x, gLineHeight);
+        } else {
+            gCtx.fillText(gMeme.lines[gMeme.lines.length - 1].txt, x, gLineHeight);
+            gCtx.strokeText(gMeme.lines[gMeme.lines.length - 1].txt, x, gLineHeight);
+            gCtx.fillText(gCurrText.value, x, gSecLineHeight);
+            gCtx.strokeText(gCurrText.value, x, gSecLineHeight);
+        }
     }
 }
 
@@ -97,6 +104,7 @@ function addMouseListeners() {
     gElIcons.addEventListener('mouseup', onUp);
     gCanvas.addEventListener('mouseup', onUp);
     gCanvas.addEventListener('mouseup', onDrop);
+    gCanvas.addEventListener('mousedown', isClicked);
 }
 
 function addTouchListeners() {
@@ -105,6 +113,8 @@ function addTouchListeners() {
     gCanvas.addEventListener('touchend', onDrop);
     gElIcons.addEventListener('touchend', onUp);
 }
+
+
 
 function onKeyChange(ev) {
     // var currUrl = `img/${gMeme.selectedImgId}.jpg`;

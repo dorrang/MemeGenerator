@@ -51,6 +51,14 @@ function onEdit(imgId) {
 }
 
 
+function onGallery() {
+    var elMainPage = document.querySelector('.main-page');
+    var elEditPage = document.querySelector('.meme-editor');
+    elMainPage.classList.remove('hidden');
+    elEditPage.classList.add('hidden');
+
+}
+
 function onChangeLine() {
     changeLine();
 

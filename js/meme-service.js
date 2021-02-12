@@ -12,7 +12,9 @@ var gMeme = {
         align: 'left',
         font: 'Impact',
         color: 'red',
-        strokeColor: 'black'
+        strokeColor: 'black',
+        isDragging: false
+
     }]
 };
 
@@ -74,7 +76,8 @@ function createLine() {
         size: 40,
         align: 'center',
         color: 'white',
-        strokeColor: 'black'
+        strokeColor: 'black',
+        isDragging: false
     }
     return line;
 };
@@ -108,10 +111,10 @@ function moveUp() {
     // var currUrl = `img/${gMeme.selectedImgId}.jpg`;
     // renderCanvasImg(currUrl);
     // drawText(gCanvas.width / 2, gLineHeight);
+    var currUrl = `img/${gMeme.selectedImgId}.jpg`;
 
     if (gMeme.selectedLineIdx === 0) {
         gLineHeight -= 5;
-        var currUrl = `img/${gMeme.selectedImgId}.jpg`;
         renderCanvasImg(currUrl);
         drawText(gCanvas.width / 2, gLineHeight);
     } else if (gMeme.selectedLineIdx === 1) {
@@ -123,9 +126,9 @@ function moveUp() {
 }
 
 function moveDown() {
+    var currUrl = `img/${gMeme.selectedImgId}.jpg`;
     if (gMeme.selectedLineIdx === 0) {
         gLineHeight += 5;
-        var currUrl = `img/${gMeme.selectedImgId}.jpg`;
         renderCanvasImg(currUrl);
         drawText(gCanvas.width / 2, gLineHeight);
     } else if (gMeme.selectedLineIdx === 1) {
