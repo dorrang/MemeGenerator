@@ -93,9 +93,9 @@ function getImgById(imgId) {
 };
 
 
-function updategMeme(imgId) {
-    gMeme = createMeme(imgId);
-};
+// function updategMeme(imgId) {
+//     gMeme = createMeme(imgId);
+// };
 
 ///////////////////////////////Edit-Funcs///////////////////////////////
 var gLineHeight = 60;

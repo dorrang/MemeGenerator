@@ -47,7 +47,13 @@ function drawText(x, y) {
     gCtx.strokeStyle = gCurrStroke;
     gCtx.fillStyle = gCurrColor;
     gCtx.font = `${gFontSize}px Impact`;
-    gCtx.textAlign = 'center';
+    gCtx.textAlign = gLineAlign;
+
+    if (gLineAlign === 'right') {
+        x += 200;
+    } else if (gLineAlign === 'left') {
+        x -= 200;
+    }
     gCtx.fillText(gCurrText.value, x, gLineHeight);
     gCtx.strokeText(gCurrText.value, x, gLineHeight);
 }
@@ -112,22 +118,15 @@ function onDown(ev) {
     const pos = getEvPos(ev);
     gCurrIconUrl = ev.target.src;
     console.log(ev)
-
-    // console.log(pos, ev)
 }
 
 function onMove(ev) {
     const pos = getEvPos(ev);
-
-    // console.log(pos)
 }
-
-
 
 
 function onUp(ev) {
     const pos = getEvPos(ev);
-    // console.log(pos)
 }
 
 function getEvPos(ev) {

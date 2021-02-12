@@ -79,6 +79,18 @@ function onDecFont() {
     drawText(gCanvas.width / 2, gLineHeight);
 }
 
+var gLineAlign = 'center';
+
+function alignText(direction) {
+    if (direction === 'center') gLineAlign = 'center';
+    if (direction === 'left') gLineAlign = 'left';
+    if (direction === 'right') gLineAlign = 'right';
+    gMeme.lines[0].align = direction;
+    var currUrl = `img/${gMeme.selectedImgId}.jpg`;
+    renderCanvasImg(currUrl);
+    drawText(gCanvas.width / 2, gLineHeight);
+}
+
 
 ///////////////////////////////Icons///////////////////////////////
 
