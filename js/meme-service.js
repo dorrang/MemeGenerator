@@ -58,7 +58,7 @@ function _createKeyWords() {
     };
 };
 
-function createMeme(imgId = 1) {
+function createMeme(imgId) {
     var meme = {
         selectedImgId: imgId,
         selectedLineIdx: 0,
@@ -70,7 +70,7 @@ function createMeme(imgId = 1) {
 
 function createLine() {
     var line = {
-        txt: gCurrText,
+        txt: gCurrText.value,
         size: 35,
         align: 'center',
         color: 'white',
@@ -104,7 +104,7 @@ function createIcons() {
         var icon = createIcon(i);
         gIcons.push(icon);
     };
-    console.log(gIcons);
+    // console.log(gIcons);
 }
 
 function createIcon(id) {

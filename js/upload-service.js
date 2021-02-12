@@ -2,7 +2,7 @@
 //////////////////////////Canvas///////////////////////////////
 
 
-function renderImg(imgUrl) {
+function renderCanvasImg(imgUrl) {
     var image = new Image();
     image.src = imgUrl;
     gCtx.drawImage(image, 0, 0, gCanvas.width, gCanvas.height);
@@ -44,7 +44,7 @@ function downloadImg(elLink) {
 
 // The next 2 functions handle IMAGE UPLOADING to img tag from file system: 
 function onImgInput(ev) {
-    loadImageFromInput(ev, renderImg)
+    loadImageFromInput(ev, renderCanvasImg)
 }
 
 function loadImageFromInput(ev, onImageReady) {

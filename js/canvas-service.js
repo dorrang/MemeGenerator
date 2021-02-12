@@ -21,10 +21,16 @@ function onChangeStroke(color) {
 //////////////////////////Canvas///////////////////////////////
 
 
-function renderImg(imgUrl) {
+function renderCanvasImg(imgUrl) {
     var image = new Image();
     image.src = imgUrl;
     gCtx.drawImage(image, 0, 0, gCanvas.width, gCanvas.height);
+}
+
+function renderIcon(pos) {
+    var image = new Image();
+    image.src = gCurrIconUrl;
+    gCtx.drawImage(image, pos.x, pos.y, 100, 100);
 }
 
 function resizeCanvas() {
@@ -43,9 +49,6 @@ function drawText(x, y) {
     gCtx.fillText(gCurrText.value, x, y);
     gCtx.strokeText(gCurrText.value, x, y);
 }
-
-
-
 
 function draw(ev) {
     const { offsetX, offsetY } = ev;
@@ -85,8 +88,8 @@ function addTouchListeners() {
 }
 
 function onKeyChange(ev) {
-    // var text = setInterval(drawText(gCanvas.width / 2, 150), 3000);
-
+    var currUrl = `img/${gMeme.selectedImgId}.jpg`;
+    renderCanvasImg(currUrl);
     drawText(gCanvas.width / 2, 150);
     console.log(ev);
     // return text;
@@ -94,8 +97,6 @@ function onKeyChange(ev) {
 
 function onDrop(ev) {
     const pos = getEvPos(ev);
-
-    renderImg(ev.target.src);
     renderIcon(pos);
     // const pos = getEvPos(ev);
     // console.log(pos)
@@ -103,11 +104,11 @@ function onDrop(ev) {
 
 }
 
-var gCurrImgUrl;
+var gCurrIconUrl;
 
 function onDown(ev) {
     const pos = getEvPos(ev);
-    gCurrImgUrl = ev.target.src;
+    gCurrIconUrl = ev.target.src;
     console.log(ev)
 
     // console.log(pos, ev)
@@ -119,11 +120,7 @@ function onMove(ev) {
     // console.log(pos)
 }
 
-function renderIcon(pos) {
-    var image = new Image();
-    image.src = gCurrImgUrl;
-    gCtx.drawImage(image, pos.x, pos.y, 100, 100);
-}
+
 
 
 function onUp(ev) {
@@ -160,7 +157,7 @@ function downloadImg(elLink) {
 
 // The next 2 functions handle IMAGE UPLOADING to img tag from file system: 
 function onImgInput(ev) {
-    loadImageFromInput(ev, renderImg)
+    loadImageFromInput(ev, renderCanvasImg)
 }
 
 function loadImageFromInput(ev, onImageReady) {

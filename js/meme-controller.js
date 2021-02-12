@@ -45,10 +45,9 @@ function onEdit(imgId) {
     elEditPage.classList.remove('hidden');
     var imgObj = getImgById(imgId);
     var imgUrl = imgObj.url;
-    console.log(imgUrl);
-    renderImg(imgUrl);
+    renderCanvasImg(imgUrl);
     renderIcons();
-    updategMeme(imgId);
+    gMeme = createMeme(imgId);
 }
 
 
