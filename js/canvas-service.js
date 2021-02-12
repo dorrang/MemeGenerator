@@ -30,7 +30,7 @@ function renderCanvasImg(imgUrl) {
 function renderIcon(pos) {
     var image = new Image();
     image.src = gCurrIconUrl;
-    gCtx.drawImage(image, pos.x, pos.y, 100, 100);
+    gCtx.drawImage(image, pos.x - 50, pos.y - 50, 100, 100);
 
 }
 
@@ -40,12 +40,13 @@ function resizeCanvas() {
     gCanvas.height = elContainer.offsetHeight
 }
 
+var gFontSize = 40;
 
 function drawText(x, y) {
     gCtx.lineWidth = 1;
     gCtx.strokeStyle = gCurrStroke;
     gCtx.fillStyle = gCurrColor;
-    gCtx.font = '40px Impact';
+    gCtx.font = `${gFontSize}px Impact`;
     gCtx.textAlign = 'center';
     gCtx.fillText(gCurrText.value, x, gLineHeight);
     gCtx.strokeText(gCurrText.value, x, gLineHeight);

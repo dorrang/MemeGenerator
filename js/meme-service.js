@@ -71,7 +71,7 @@ function createMeme(imgId) {
 function createLine() {
     var line = {
         txt: gCurrText.value,
-        size: 35,
+        size: 40,
         align: 'center',
         color: 'white',
         strokeColor: 'black'
@@ -114,6 +114,13 @@ function moveDown() {
     drawText(gCanvas.width / 2, gLineHeight);
 }
 
+function addLine() {
+    var newLine = createLine();
+    gMeme.lines.push(newLine);
+    console.log(gMeme)
+    drawText(gCanvas.width / 2, gLineHeight + 160);
+
+}
 
 
 

@@ -62,6 +62,23 @@ function onAddLine() {
     addLine();
 }
 
+function onIncFont() {
+    gFontSize += 2;
+    gMeme.lines[0].size = gFontSize;
+    var currUrl = `img/${gMeme.selectedImgId}.jpg`;
+    renderCanvasImg(currUrl);
+    drawText(gCanvas.width / 2, gLineHeight);
+
+}
+
+function onDecFont() {
+    gFontSize -= 2;
+    gMeme.lines[0].size = gFontSize;
+    var currUrl = `img/${gMeme.selectedImgId}.jpg`;
+    renderCanvasImg(currUrl);
+    drawText(gCanvas.width / 2, gLineHeight);
+}
+
 
 ///////////////////////////////Icons///////////////////////////////
 
