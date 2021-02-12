@@ -50,6 +50,12 @@ function onEdit(imgId) {
     gMeme = createMeme(imgId);
 }
 
+
+function onChangeLine() {
+    changeLine();
+
+}
+
 function onMoveUp() {
     moveUp();
 }
@@ -86,8 +92,7 @@ function alignText(direction) {
     if (direction === 'left') gLineAlign = 'left';
     if (direction === 'right') gLineAlign = 'right';
     gMeme.lines[0].align = direction;
-    var currUrl = `img/${gMeme.selectedImgId}.jpg`;
-    renderCanvasImg(currUrl);
+    renderCanvasImg(`img/${gMeme.selectedImgId}.jpg`);
     drawText(gCanvas.width / 2, gLineHeight);
 }
 

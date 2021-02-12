@@ -50,13 +50,24 @@ function drawText(x, y) {
     gCtx.textAlign = gLineAlign;
 
     if (gLineAlign === 'right') {
-        x += 200;
+        x += 210;
     } else if (gLineAlign === 'left') {
-        x -= 200;
+        x -= 210;
     }
-    gCtx.fillText(gCurrText.value, x, gLineHeight);
-    gCtx.strokeText(gCurrText.value, x, gLineHeight);
+
+    if (gMeme.selectedLineIdx === 1) {
+        gCtx.fillText(gMeme.lines[gMeme.lines.length - 1].txt, x, gLineHeight);
+        gCtx.strokeText(gMeme.lines[gMeme.lines.length - 1].txt, x, gLineHeight);
+        gCtx.fillText(gCurrText.value, x, gSecLineHeight);
+        gCtx.strokeText(gCurrText.value, x, gSecLineHeight);
+
+    } else {
+        gCtx.fillText(gCurrText.value, x, gLineHeight);
+        gCtx.strokeText(gCurrText.value, x, gLineHeight);
+    }
 }
+
+
 
 function draw(ev) {
     const { offsetX, offsetY } = ev;
@@ -96,8 +107,8 @@ function addTouchListeners() {
 }
 
 function onKeyChange(ev) {
-    var currUrl = `img/${gMeme.selectedImgId}.jpg`;
-    renderCanvasImg(currUrl);
+    // var currUrl = `img/${gMeme.selectedImgId}.jpg`;
+    renderCanvasImg(`img/${gMeme.selectedImgId}.jpg`);
     drawText(gCanvas.width / 2, 60);
     // console.log(ev);
     // return text;
@@ -117,7 +128,7 @@ var gCurrIconUrl;
 function onDown(ev) {
     const pos = getEvPos(ev);
     gCurrIconUrl = ev.target.src;
-    console.log(ev)
+    // console.log(ev)
 }
 
 function onMove(ev) {

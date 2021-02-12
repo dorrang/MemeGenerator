@@ -98,31 +98,60 @@ function getImgById(imgId) {
 // };
 
 ///////////////////////////////Edit-Funcs///////////////////////////////
+
+
 var gLineHeight = 60;
+var gSecLineHeight = (gLineHeight + 200);
 
 function moveUp() {
-    gLineHeight -= 5;
-    var currUrl = `img/${gMeme.selectedImgId}.jpg`;
-    renderCanvasImg(currUrl);
-    drawText(gCanvas.width / 2, gLineHeight);
+    // gLineHeight -= 5;
+    // var currUrl = `img/${gMeme.selectedImgId}.jpg`;
+    // renderCanvasImg(currUrl);
+    // drawText(gCanvas.width / 2, gLineHeight);
+
+    if (gMeme.selectedLineIdx === 0) {
+        gLineHeight -= 5;
+        var currUrl = `img/${gMeme.selectedImgId}.jpg`;
+        renderCanvasImg(currUrl);
+        drawText(gCanvas.width / 2, gLineHeight);
+    } else if (gMeme.selectedLineIdx === 1) {
+        gSecLineHeight -= 5;
+        renderCanvasImg(currUrl);
+        drawText(gCanvas.width / 2, gSecLineHeight);
+
+    }
 }
 
 function moveDown() {
-    gLineHeight += 5;
-    var currUrl = `img/${gMeme.selectedImgId}.jpg`;
-    renderCanvasImg(currUrl);
-    drawText(gCanvas.width / 2, gLineHeight);
+    if (gMeme.selectedLineIdx === 0) {
+        gLineHeight += 5;
+        var currUrl = `img/${gMeme.selectedImgId}.jpg`;
+        renderCanvasImg(currUrl);
+        drawText(gCanvas.width / 2, gLineHeight);
+    } else if (gMeme.selectedLineIdx === 1) {
+        gSecLineHeight += 5;
+        renderCanvasImg(currUrl);
+        drawText(gCanvas.width / 2, gSecLineHeight);
+    }
+}
+
+function changeLine() {
+    if (gMeme.selectedLineIdx === 0)
+        gMeme.selectedLineIdx = 1;
+    if (gMeme.selectedLineIdx === 1) {
+        gMeme.selectedLineIdx = 0;
+    }
+    console.log(gMeme.selectedLineIdx);
 }
 
 function addLine() {
     var newLine = createLine();
     gMeme.lines.push(newLine);
     console.log(gMeme)
+    gMeme.selectedLineIdx = 1;
     drawText(gCanvas.width / 2, gLineHeight + 160);
 
 }
-
-
 
 ///////////////////////////////Icons///////////////////////////////
 
