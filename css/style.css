@@ -140,6 +140,7 @@ li {
 
 .search-bar {
     align-self: center;
+    padding: 0 140px;
 }
 
 .search-comps {
@@ -289,7 +290,7 @@ form {
 
 /* ///////////////////////Mobile////////////////////// */
 
-@media (max-width: 700px) {
+@media (max-width: 1050px) {
     .main-container {
         max-width: 500px;
     }
@@ -303,25 +304,15 @@ form {
         flex-direction: column;
     }
     .key-words {
-        display: none;
-    }
-    .nav-bar-header {
-        flex-direction: column;
-    }
-    h1 {
-        margin-bottom: 5px;
-        margin-top: 15px;
-    }
-    .menu-list {
-        text-align: center;
-        justify-content: flex-end;
+        display: inline;
+        width: 600px;
     }
 }
 
 
 /* ///////////////////////Desktop////////////////////// */
 
-@media (min-width: 1050px) {
+@media (min-width: 1200px) {
     .main-container {
         max-width: 1050px;
     }
