@@ -4,20 +4,6 @@ const gElIcons = document.querySelector('.icons-container');
 // const gTextInput = document.querySelector('.text-input');
 
 
-function onChangeColor(color) {
-    gCtx.strokeStyle = color;
-    gCtx.fillStyle = color;
-    gCtx.save();
-    gCurrColor = color;
-}
-
-function onChangeStroke(color) {
-    gCtx.strokeStyle = color;
-    gCtx.fillStyle = color;
-    gCtx.save();
-    gCurrStroke = color;
-}
-
 //////////////////////////Canvas///////////////////////////////
 
 
@@ -46,9 +32,9 @@ function drawText(x, y) {
     gCtx.lineWidth = 1;
     gCtx.strokeStyle = gCurrStroke;
     gCtx.fillStyle = gCurrColor;
-    gCtx.font = `${gFontSize}px Impact`;
+    gCtx.font = `${gFontSize}px ${gMeme.selectedFont}`;
     gCtx.textAlign = gLineAlign;
-
+    console.log(gMeme);
     if (gLineAlign === 'right') {
         x += 210;
     } else if (gLineAlign === 'left') {
@@ -130,7 +116,7 @@ function onKeyChange(ev) {
 
 function onDrop(ev) {
     const pos = getEvPos(ev);
-    gCanvasIcons.push({ url: gCurrIconUrl, pos: pos });
+    gCanvasIcons.push({ url: gCurrIconUrl, pos: pos, isDragging: false });
     console.log(gCanvasIcons);
     renderIcon(pos, gCanvasIcons[gCanvasIcons.length - 1].url);
     // const pos = getEvPos(ev);

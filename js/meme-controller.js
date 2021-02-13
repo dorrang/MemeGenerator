@@ -94,12 +94,26 @@ function onEdit(imgId) {
 }
 
 
+function reset() {
+    gCanvasIcons = [];
+    gMeme = [];
+    gCurrStroke = 'black';
+    gCurrColor = 'white';
+    var elStrokeColor = document.querySelector('.stroke-color');
+    var elTextColor = document.querySelector('.text-color');
+    elStrokeColor.value = '#000000';
+    elTextColor.value = '#ffffff';
+    gCurrText.value = '';
+
+}
+
 function onGallery() {
     renderMems();
     var elMainPage = document.querySelector('.main-page');
     var elEditPage = document.querySelector('.meme-editor');
     elMainPage.classList.remove('hidden');
     elEditPage.classList.add('hidden');
+    reset();
 }
 
 function onChangeLine() {
@@ -153,6 +167,34 @@ function onDelete() {
     renderCanvasImg(`img/${gMeme.selectedImgId}.jpg`);
     drawText(gCanvas.width / 2, gLineHeight);
 }
+
+
+function onChangeColor(color) {
+    gCtx.strokeStyle = color;
+    gCtx.fillStyle = color;
+    gCtx.save();
+    gCurrColor = color;
+    renderCanvasImg(`img/${gMeme.selectedImgId}.jpg`);
+    drawText(gCanvas.width / 2, gLineHeight);
+
+}
+
+function onChangeStroke(color) {
+    gCtx.strokeStyle = color;
+    gCtx.fillStyle = color;
+    gCtx.save();
+    gCurrStroke = color;
+    renderCanvasImg(`img/${gMeme.selectedImgId}.jpg`);
+    drawText(gCanvas.width / 2, gLineHeight);
+}
+
+function onSetFont(font) {
+    gMeme.selectedFont = font;
+    gCtx.font = `${gFontSize}px ${font}`;
+    renderCanvasImg(`img/${gMeme.selectedImgId}.jpg`);
+    drawText(gCanvas.width / 2, gLineHeight);
+}
+
 
 ///////////////////////////////Icons///////////////////////////////
 
