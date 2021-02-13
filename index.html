@@ -95,20 +95,20 @@
                             </div>
                         </div>
                         <div class="icons-container flex">
-                            <button data-trans="next-page" class="bot" onclick="onPrevPage()">««</button>
+                            <button data-trans="next-page" class="prev" onclick="onPrevPage()">««</button>
                             <table class="icon-table">
                                 <tr class="icon-table-row"></tr>
                             </table>
-                            <button data-trans="prev-page" class="bot" onclick="onNextPage()">»»</button>
+                            <button data-trans="prev-page" class="next" onclick="onNextPage()">»»</button>
 
                         </div>
 
                         <div class="share-btns">
                             <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
                                 <input name="img" id="imgData" type="hidden" />
-                                <button type="submit" class="share-btn"><i class="fas fa-share-alt"></i> Facebook</button>
+                                <button type="submit" class="share-btn pointer"><i class="fas fa-share-alt"></i> Facebook</button>
                                 <button><a href="#" class="download" onclick="downloadCanvas(this)" download="my-meme.jpg">Download</a></button>
-                                <button onclick="onSaveMeme()" class="save-btn popup">Save</button>
+                                <!-- <button onclick="onSaveMeme()" class="save-btn popup">Save</button> -->
                             </form>
                         </div>
                     </div>

@@ -104,6 +104,10 @@ function addTouchListeners() {
     gElIcons.addEventListener('touchstart', onDown);
     gCanvas.addEventListener('touchend', onDrop);
     gElIcons.addEventListener('touchend', onUp);
+    var elNextPage = document.querySelector('.next');
+    var elPrevPage = document.querySelector('.prev');
+    elNextPage.addEventListener('touchend', onNextPage);
+    elPrevPage.addEventListener('touchend', onPrevPage);
 }
 
 
@@ -122,7 +126,6 @@ function onDrop(ev) {
     // const pos = getEvPos(ev);
     // console.log(pos)
     // console.log(ev)
-
 }
 
 var gCurrIconUrl;
@@ -130,8 +133,7 @@ var gCurrIconUrl;
 function onDown(ev) {
     const pos = getEvPos(ev);
     gCurrIconUrl = ev.target.src;
-    console.log(gCurrIconUrl);
-
+    // console.log(ev);
 }
 
 function onMove(ev) {
