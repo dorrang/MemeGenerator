@@ -104,13 +104,12 @@
                         </div>
 
                         <div class="share-btns">
-                            <button type="submit" onsubmit="uploadImg(this, event)" class="share-btn"><i class="fas fa-share-alt"></i>Share</button>
-                            <button>
-                            <a href="#" class="download" onclick="downloadCanvas(this)" download="my-meme.jpg">Download</a>
-                        </button>
-
-                            <button onclick="onSaveMeme()" class="save-btn popup">Save</button>
-
+                            <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+                                <input name="img" id="imgData" type="hidden" />
+                                <button type="submit" class="share-btn"><i class="fas fa-share-alt"></i> Facebook</button>
+                                <button><a href="#" class="download" onclick="downloadCanvas(this)" download="my-meme.jpg">Download</a></button>
+                                <button onclick="onSaveMeme()" class="save-btn popup">Save</button>
+                            </form>
                         </div>
                     </div>
                 </div>

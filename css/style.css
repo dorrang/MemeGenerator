@@ -173,10 +173,13 @@ li {
     position: absolute;
     bottom: 0;
     right: 0;
+    display: inline-flex;
 }
 
-.share-btns button {
+.share-btns button,
+form {
     margin: 0 5px 0 0;
+    height: 25px;
 }
 
 .icons-container {

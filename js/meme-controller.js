@@ -28,11 +28,54 @@ function renderMems() {
     elGallery.innerHTML = strHTMLs.join('');
 }
 
+function onFilter(genre) {
+    var filtered = gImgs.filter(img => {
+        return img.keywords.includes(genre);
+    });
+    var strHTMLs = filtered.map(img => {
+        return `<div class="grid-item meme-img">
+            <img onclick="onEdit(${img.id})" class="img${img.id}" src="img/${img.id}.jpg" alt="meme-img">
+        </div>`
+    });
+    var elGallery = document.querySelector('.gallery-grid');
+    elGallery.innerHTML = strHTMLs.join('');
+
+}
+
+function onSearch() {
+    var searchInput = document.querySelector('.search-input');
+    var filtered = gImgs.filter(img => {
+        return img.keywords.includes(searchInput.value);
+    });
+    var strHTMLs = filtered.map(img => {
+        return `<div class="grid-item meme-img">
+            <img onclick="onEdit(${img.id})" class="img${img.id}" src="img/${img.id}.jpg" alt="meme-img">
+        </div>`
+    });
+    var elGallery = document.querySelector('.gallery-grid');
+    elGallery.innerHTML = strHTMLs.join('');
+
+}
+// function onSearch() {
+//     var strHTMLs = gImgs.filter(img => {
+//         var searchInput = document.querySelector('.search-input');
+//         if (img.keywords.includes(searchInput.value)) {
+//             return `<div class="grid-item meme-img">
+//                 <img onclick="onEdit(${img.id})" class="img${img.id}" src="img/${img.id}.jpg" alt="meme-img">
+//                 </div>`
+//         }
+//     });
+//     var elGallery = document.querySelector('.gallery-grid');
+//     elGallery.innerHTML = strHTMLs.join('');
+
+// }
+
+
 function renderKeyWords() {
     var keyWords = gKeyWords;
     var strHTMLs = ``;
     keyWords.forEach(word => {
-        strHTMLs += `<span class="kw" onclick="onFilter(${word.genre})" style="font-size: ${word.count + 15}px" >${word.genre} </span>`;
+        strHTMLs += `<span class="kw" onclick="onFilter('${word.genre}')" style="font-size: ${word.count + 15}px" >${word.genre} </span>`;
     });
     var elKeyWords = document.querySelector('.key-words');
     elKeyWords.innerHTML = strHTMLs;
@@ -52,6 +95,7 @@ function onEdit(imgId) {
 
 
 function onGallery() {
+    renderMems();
     var elMainPage = document.querySelector('.main-page');
     var elEditPage = document.querySelector('.meme-editor');
     elMainPage.classList.remove('hidden');
@@ -114,6 +158,7 @@ function onDelete() {
 
 
 var gIcons = [];
+var gCanvasIcons = [];
 var  gPageIdx  = 0;
 
 createIcons();

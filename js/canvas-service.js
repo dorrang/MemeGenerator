@@ -27,11 +27,11 @@ function renderCanvasImg(imgUrl) {
     gCtx.drawImage(image, 0, 0, gCanvas.width, gCanvas.height);
 }
 
-function renderIcon(pos) {
-    var image = new Image();
-    image.src = gCurrIconUrl;
-    gCtx.drawImage(image, pos.x - 50, pos.y - 50, 100, 100);
 
+function renderIcon(pos, iconUrl) {
+    var image = new Image();
+    image.src = iconUrl;
+    gCtx.drawImage(image, pos.x - 50, pos.y - 50, 100, 100);
 }
 
 function resizeCanvas() {
@@ -54,7 +54,6 @@ function drawText(x, y) {
     } else if (gLineAlign === 'left') {
         x -= 210;
     }
-
     if (gMeme.selectedLineIdx === 1) {
         gCtx.fillText(gMeme.lines[gMeme.lines.length - 1].txt, x, gLineHeight);
         gCtx.strokeText(gMeme.lines[gMeme.lines.length - 1].txt, x, gLineHeight);
@@ -72,6 +71,13 @@ function drawText(x, y) {
             gCtx.strokeText(gCurrText.value, x, gSecLineHeight);
         }
     }
+    if (gCanvasIcons.length > 0) {
+        gCanvasIcons.forEach(icon => {
+            renderIcon(icon.pos, icon.url);
+        });
+    }
+
+
 }
 
 
@@ -117,16 +123,16 @@ function addTouchListeners() {
 
 
 function onKeyChange(ev) {
-    // var currUrl = `img/${gMeme.selectedImgId}.jpg`;
     renderCanvasImg(`img/${gMeme.selectedImgId}.jpg`);
     drawText(gCanvas.width / 2, 60);
-    // console.log(ev);
-    // return text;
+
 }
 
 function onDrop(ev) {
     const pos = getEvPos(ev);
-    renderIcon(pos);
+    gCanvasIcons.push({ url: gCurrIconUrl, pos: pos });
+    console.log(gCanvasIcons);
+    renderIcon(pos, gCanvasIcons[gCanvasIcons.length - 1].url);
     // const pos = getEvPos(ev);
     // console.log(pos)
     // console.log(ev)
@@ -138,7 +144,8 @@ var gCurrIconUrl;
 function onDown(ev) {
     const pos = getEvPos(ev);
     gCurrIconUrl = ev.target.src;
-    // console.log(ev)
+    console.log(gCurrIconUrl);
+
 }
 
 function onMove(ev) {
@@ -171,15 +178,15 @@ function getEvPos(ev) {
 /////////////////////////Upload-Download///////////////////////
 
 
-function downloadImg(elLink) {
-    var imgContent = gCanvas.toDataURL('image/jpeg')
-    elLink.href = imgContent
+function downloadCanvas(elLink) {
+    var imgContent = gCanvas.toDataURL('image/jpeg');
+    elLink.href = imgContent;
 }
 
 
 // The next 2 functions handle IMAGE UPLOADING to img tag from file system: 
 function onImgInput(ev) {
-    loadImageFromInput(ev, renderCanvasImg)
+    loadImageFromInput(ev, renderCanvasImg);
 }
 
 function loadImageFromInput(ev, onImageReady) {
@@ -204,10 +211,10 @@ function uploadImg(elForm, ev) {
 
     // A function to be called if request succeeds
     function onSuccess(uploadedImgUrl) {
-        uploadedImgUrl = encodeURIComponent(uploadedImgUrl)
-        document.querySelector('.share-container').innerHTML = `
+        uploadedImgUrl = encodeURIComponent(uploadedImgUrl);
+        document.querySelector('.share-btn').innerHTML = `
         <a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">
-           Share   
+        <i class="fas fa-share-alt"></i> Share Now!   
         </a>`
     }
 
