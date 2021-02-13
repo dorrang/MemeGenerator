@@ -292,7 +292,11 @@ form {
 
 @media (max-width: 1050px) {
     .main-container {
-        max-width: 500px;
+        max-width: 85%;
+        min-width: 500px;
+    }
+    .edit-container {
+        margin: 0 50px;
     }
     .editor-container {
         flex-direction: column;
@@ -304,8 +308,12 @@ form {
         flex-direction: column;
     }
     .key-words {
-        display: inline;
-        width: 600px;
+        /* display: inline; */
+        width: 500px;
+        height: 30px;
+    }
+    .nav-bar-header {
+        padding: 0 50px;
     }
 }
 
@@ -313,7 +321,7 @@ form {
 /* ///////////////////////Desktop////////////////////// */
 
 @media (min-width: 1200px) {
-    .main-container {
+    /* .main-container {
         max-width: 1050px;
-    }
+    } */
 }
