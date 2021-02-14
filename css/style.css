@@ -329,7 +329,7 @@ form {
     }
     .key-words {
         /* display: inline; */
-        max-width: 400px;
+        width: 260px;
         /* height: 30px; */
     }
     .nav-bar-header {
