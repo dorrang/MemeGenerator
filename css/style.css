@@ -138,18 +138,22 @@ li {
     border-radius: 10px;
 }
 
+
+/* //////////Search////////// */
+
 .search-bar {
     align-self: center;
     padding: 0 140px;
+    margin: 10px;
 }
 
 .search-comps {
-    height: 70px;
+    /* height: 32px; */
+    padding: 7px;
     align-items: center;
+    border-radius: 7px;
+    background-color: #383b42;
 }
-
-
-/* //////////Search////////// */
 
 .key-words {
     margin: 0 10px;
@@ -160,7 +164,7 @@ li {
 }
 
 .shown {
-    overflow: visible;
+    /* overflow: visible; */
     width: 400px;
 }
 
@@ -172,6 +176,7 @@ li {
 .search-btn,
 .search-input {
     height: 25px;
+    margin: 3.5px;
 }
 
 
