@@ -127,6 +127,7 @@ function reset() {
     elStrokeColor.value = '#000000';
     elTextColor.value = '#ffffff';
     gCurrText.value = '';
+    gLineAlign = 'center';
 
 }
 
