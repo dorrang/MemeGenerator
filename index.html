@@ -14,7 +14,7 @@
 <body onload="init()">
     <header>
         <nav class="nav-bar-header container flex">
-            <h1 class="logo center-item">MEMES</h1>
+            <h1 class="logo center-item pointer" onclick="onGallery()">MEMES</h1>
             <ul class="menu-list flex">
                 <li><a class="center-item" onclick="onGallery()">Gallery</a></li>
                 <li><a class="center-item">My Memes</a></li>
@@ -27,14 +27,14 @@
             <section class="search-bar flex justify-center">
                 <section class="search-comps flex justify-center">
                     <div class="search flex">
-                        <input class="search-input flex" type="text" placeholder="Search">
+                        <input class="search-input flex" type="text" placeholder="Search" oninput="onSearch()">
                         <button class="search-btn pointer" onclick="onSearch()"><i class="fas fa-search"></i></button>
                     </div>
 
                     <div class="popular-search flex">
                         <div class="key-words">
                         </div>
-                        <!-- <button onclick="onShowMore(this)" class="more-btn">More</button> -->
+                        <button onclick="onShowMore(this)" class="more-btn flex center-item">More</button>
                     </div>
 
                 </section>

@@ -32,7 +32,9 @@ function drawText(x, y) {
     gCtx.lineWidth = 1;
     gCtx.strokeStyle = gCurrStroke;
     gCtx.fillStyle = gCurrColor;
-    gCtx.font = `${gFontSize}px ${gMeme.selectedFont}`;
+    console.log(gMeme.selectedLineIdx);
+
+    gCtx.font = `${gMeme.lines[gMeme.selectedLineIdx].size}px ${gMeme.selectedFont}`;
     gCtx.textAlign = gLineAlign;
     console.log(gMeme);
     if (gLineAlign === 'right') {

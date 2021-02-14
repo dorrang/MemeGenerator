@@ -8,7 +8,7 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [{
         txt: 'I never eat Falafel',
-        size: 20,
+        size: 40,
         align: 'left',
         font: 'Impact',
         color: 'red',
@@ -45,14 +45,14 @@ function _createKeyWords() {
     var keyWords = loadFromStorage('key-words');
     if (!keyWords) {
         gKeyWords = [
-            { genre: 'animals', count: 3 },
-            { genre: 'funny', count: 8 },
-            { genre: 'politics', count: 4 },
-            { genre: 'movies', count: 5 },
-            { genre: 'sport', count: 1 },
-            { genre: 'baby', count: 4 },
-            { genre: 'explain', count: 8 },
-            { genre: 'classics', count: 3 }
+            { genre: 'animals', count: 3, popularity: 10 },
+            { genre: 'funny', count: 8, popularity: 10 },
+            { genre: 'politics', count: 4, popularity: 10 },
+            { genre: 'movies', count: 5, popularity: 10 },
+            { genre: 'sport', count: 1, popularity: 10 },
+            { genre: 'baby', count: 4, popularity: 10 },
+            { genre: 'explain', count: 8, popularity: 10 },
+            { genre: 'classics', count: 3, popularity: 10 }
         ];
         saveToStorage('key-words', gKeyWords);
     } else {
@@ -96,11 +96,7 @@ function getImgById(imgId) {
 };
 
 
-// function updategMeme(imgId) {
-//     gMeme = createMeme(imgId);
-// };
-
-///////////////////////////////Edit-Funcs///////////////////////////////
+///////////////////////////Edit-Funcs///////////////////////////////
 
 
 var gLineHeight = 60;
@@ -143,6 +139,9 @@ function changeLine() {
         gMeme.selectedLineIdx = 1;
     else if (gMeme.selectedLineIdx === 1) {
         gMeme.selectedLineIdx = 0;
+        // var text = gCurrText;
+        // gMeme.lines[1].txt = text;
+
     }
     console.log(gMeme.selectedLineIdx);
 }
@@ -152,6 +151,7 @@ function addLine() {
     gMeme.lines.push(newLine);
     console.log(gMeme)
     gMeme.selectedLineIdx = 1;
+    gCurrText.value = '';
     drawText(gCanvas.width / 2, gLineHeight + 160);
 
 }

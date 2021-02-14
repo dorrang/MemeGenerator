@@ -54,6 +54,7 @@ function onSearch() {
     });
     var elGallery = document.querySelector('.gallery-grid');
     elGallery.innerHTML = strHTMLs.join('');
+    if (searchInput.value === '') onGallery();
 
 }
 // function onSearch() {
@@ -70,12 +71,34 @@ function onSearch() {
 
 // }
 
+function onGrow(elKeyWord, keyword) {
+    var match = gKeyWords.find(({ genre }) => genre === keyword);
+    if (match.popularity === 30) return;
+    console.log('match', match);
+    match.popularity += 2;
+    elKeyWord.style = `font-size: ${match.popularity + match.count}px`;
+}
+
+function onShowMore(elBtn) {
+    var elKeyWords = document.querySelector('.key-words');
+    // elKeyWords.style = 'overflow: visible; width: 400px';
+    elBtn.innerHTML = 'Less';
+    if (elKeyWords.classList.contains('shown')) {
+        elBtn.innerHTML = 'More';
+        elKeyWords.classList.remove('shown');
+        console.log(elKeyWords.classList);
+        ////// למה לא עובד הREMOVE?
+
+    } else {
+        elKeyWords.classList.add('shown');
+    }
+}
 
 function renderKeyWords() {
     var keyWords = gKeyWords;
     var strHTMLs = ``;
     keyWords.forEach(word => {
-        strHTMLs += `<span class="kw" onclick="onFilter('${word.genre}')" style="font-size: ${word.count + 15}px" >${word.genre} </span>`;
+        strHTMLs += `<span class="kw ${word.genre}" onclick="onFilter('${word.genre}'); onGrow(this, '${word.genre}')" style="font-size: ${word.count + word.popularity}px" >${word.genre} </span>`;
     });
     var elKeyWords = document.querySelector('.key-words');
     elKeyWords.innerHTML = strHTMLs;
@@ -134,8 +157,8 @@ function onAddLine() {
 }
 
 function onIncFont() {
-    gFontSize += 2;
-    gMeme.lines[0].size = gFontSize;
+    // gFontSize += 2;
+    gMeme.lines[gMeme.selectedLineIdx].size += 2;
     var currUrl = `img/${gMeme.selectedImgId}.jpg`;
     renderCanvasImg(currUrl);
     drawText(gCanvas.width / 2, gLineHeight);
@@ -143,8 +166,10 @@ function onIncFont() {
 }
 
 function onDecFont() {
-    gFontSize -= 2;
-    gMeme.lines[0].size = gFontSize;
+    // gFontSize -= 2;
+    // gMeme.lines[0].size = gFontSize;
+    gMeme.lines[gMeme.selectedLineIdx].size -= 2;
+
     var currUrl = `img/${gMeme.selectedImgId}.jpg`;
     renderCanvasImg(currUrl);
     drawText(gCanvas.width / 2, gLineHeight);
